@@ -33,11 +33,14 @@ $(document).ready(function () {
       var blockHour = parseInt($(this).attr("id").split("-")[1]);
 
       if (blockHour < currentHour) {
+        console.log(blockHour, "past");
         $(this).addClass("past");
       } else if (blockHour === currentHour) {
+        console.log(blockHour, "present");
         $(this).removeClass("past");
         $(this).addClass("present");
       } else {
+        console.log(blockHour, "future");
         $(this).removeClass("past");
         $(this).removeClass("present");
         $(this).addClass("future");
@@ -56,7 +59,7 @@ $(document).ready(function () {
   // });
 
   $(".saveBtn").on("click", function () {
-    var textInput = $(this).siblings(".time-block").value();
+    var textInput = $(this).siblings("time-block").value();
     var hourInput = $(this).siblings(".hour").attr("id");
     localStorage.setItm(textInput, hourInput);
     // var hour = $(this).attr("data-hour");
@@ -64,6 +67,6 @@ $(document).ready(function () {
     // localStorage.setItem(hour, plan);
   });
 
-  $("#9am").siblings("input").val(localStorage).getItem("#");
+  $("#nine").siblings("input").val(localStorage.getItem(".Row9"));
   //EVENT LISTENERS
 });
