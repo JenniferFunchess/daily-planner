@@ -47,26 +47,54 @@ $(document).ready(function () {
       }
     });
   }
-
   hourTracker();
-  //This section calls for the save button to save content to Local Storage
-  // $("#saveIcon1").on("click", function () {
-  //   console.log(this);
-  //   var text = $("#Row9").val().trim();
-  //   var time = $("#nine").attr("id");
-  //   localStorage.setItem(time, text);
-  //   console.log(localStorage);
-  // });
+
+  //EVENT LISTENERS
 
   $(".saveBtn").on("click", function () {
-    var textInput = $(this).siblings("time-block").value();
-    var hourInput = $(this).siblings(".hour").attr("id");
-    localStorage.setItm(textInput, hourInput);
-    // var hour = $(this).attr("data-hour");
-    // var plan = $("#" + hour + "Row").val();
-    // localStorage.setItem(hour, plan);
+    var hour = $(this).attr("data-hour");
+    var textNine = $("#Row-9").val().trim();
+    var textTen = $("#Row-10").val().trim();
+    var textEleven = $("#Row-11").val().trim();
+    var textTwelve = $("#Row-12").val().trim();
+    var textThirteen = $("#Row-13").val().trim();
+    var textFourteen = $("#Row-14").val().trim();
+    var textFifteen = $("#Row-15").val().trim();
+    var textSixteen = $("#Row-16").val().trim();
+    var textSeventeen = $("#Row-17").val().trim();
+    localStorage.setItem(
+      hour,
+      textNine,
+      textTen,
+      textEleven,
+      textTwelve,
+      textThirteen,
+      textFourteen,
+      textFifteen,
+      textSixteen,
+      textSeventeen
+    );
+    console.log(
+      hour,
+      textNine,
+      textTen,
+      textEleven,
+      textTwelve,
+      textThirteen,
+      textFourteen,
+      textFifteen,
+      textSixteen,
+      textSeventeen
+    );
   });
 
-  $("#nine").siblings("input").val(localStorage.getItem(".Row9"));
-  //EVENT LISTENERS
+  $("#Row-9").val(localStorage.getItem("9"));
+  $("#Row-10").val(localStorage.getItem("10"));
+  $("#Row-11").val(localStorage.getItem("11"));
+  $("#Row-12").val(localStorage.getItem("12"));
+  $("#Row-13").val(localStorage.getItem("1"));
+  $("#Row-14").val(localStorage.getItem("2"));
+  $("#Row-15").val(localStorage.getItem("3"));
+  $("#Row-16").val(localStorage.getItem("4"));
+  $("#Row-17").val(localStorage.getItem("5"));
 });
