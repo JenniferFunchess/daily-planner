@@ -1,10 +1,7 @@
 $(document).ready(function () {
   console.log("This is loading!");
 
-  renderPlans();
-
   var timeBlockContainer = $(".time-block");
-  var currentHour = moment().hour();
   var militaryHours = [9, 10, 11, 12, 13, 14, 15, 16, 17];
   var workHours = [
     "nine",
@@ -28,16 +25,21 @@ $(document).ready(function () {
   $("#currentDay").append(new Date());
 
   // This section calls the current time and changes the textarea color
+
   function hourTracker() {
+    var currentHour = moment().hours();
+
     $(".time-block").each(function () {
-      var blockHour = parseInt($(this).attr("id").split("hour")[1]);
-      console.log(blockHour, currentHour);
+      var blockHour = parseInt($(this).attr("id").split("-")[1]);
 
       if (blockHour < currentHour) {
         $(this).addClass("past");
       } else if (blockHour === currentHour) {
+        $(this).removeClass("past");
         $(this).addClass("present");
       } else {
+        $(this).removeClass("past");
+        $(this).removeClass("present");
         $(this).addClass("future");
       }
     });
@@ -54,15 +56,14 @@ $(document).ready(function () {
   // });
 
   $(".saveBtn").on("click", function () {
-    var hour = $(this).attr("data-hour");
-    var plan = $("#" + hour + "Row").val();
-    localStorage.setItem(hour, plan);
+    var textInput = $(this).siblings(".time-block").value();
+    var hourInput = $(this).siblings(".hour").attr("id");
+    localStorage.setItm(textInput, hourInput);
+    // var hour = $(this).attr("data-hour");
+    // var plan = $("#" + hour + "Row").val();
+    // localStorage.setItem(hour, plan);
   });
 
-  function renderPlans() {
-    for (var i = 1; i <= 12; i++) {
-      $("#" + i + "Row").val(localStorage.getItem(i));
-    }
-  }
+  $("#9am").siblings("input").val(localStorage).getItem("#");
   //EVENT LISTENERS
 });
