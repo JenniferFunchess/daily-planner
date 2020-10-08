@@ -2,18 +2,7 @@ $(document).ready(function () {
   console.log("This is loading!");
 
   var timeBlockContainer = $(".time-block");
-  var militaryHours = [9, 10, 11, 12, 13, 14, 15, 16, 17];
-  var workHours = [
-    "nine",
-    "ten",
-    "eleven",
-    "twelve",
-    "one",
-    "two",
-    "three",
-    "four",
-    "five",
-  ];
+
   // This section calls the current date to the Jumbotron
   var today = new Date();
   console.log(new Date());
@@ -49,7 +38,7 @@ $(document).ready(function () {
   }
   hourTracker();
 
-  //EVENT LISTENERS
+  //This section saves the text input when you click the save button
 
   $(".saveBtn").on("click", function () {
     var hour = $(this).attr("data-hour");
